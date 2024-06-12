@@ -56,6 +56,25 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
+# ---------------------------------------------------------------------------- #
+#                         Ash Framework configuration                          #
+# ---------------------------------------------------------------------------- #
+
+config :spark, :formatter,
+  remove_parens?: true,
+  "Ash.Domain": [],
+  "Ash.Resource": [
+    section_order: [
+      # Any section not in this list is left where it is.
+      # But these sections will always appear in this order in a resource.
+      :postgres,
+      :attributes,
+      :identities,
+      :code_interface,
+      :actions
+    ]
+  ]
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
