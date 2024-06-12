@@ -3,6 +3,6 @@ defmodule Creative.Repo do
     otp_app: :creative
 
   def installed_extensions do
-    ["ash-functions"]
+    ["ash-functions", "citext"]
   end
 end
