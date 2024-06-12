@@ -1,0 +1,33 @@
+# ---------------------------------------------------------------------------- #
+#          Ignore repositories and files to keep clean diffs with git          #
+# ---------------------------------------------------------------------------- #
+
+# direnv cache for Nix shells
+/.direnv/
+
+# Elixir build directory
+/_build/
+
+# Elixir dependencies
+/deps/
+/.fetch
+
+# Elixir binary files
+*.beam
+*.ez
+/creative-*.tar
+/creative
+
+# PostgreSQL databases.
+/db/
+
+# Editor artifacts
+
+/.elixir_ls/
+/.history/
+
+# git history
+/.history
+
+# Erang VM
+erl_crash.dump
