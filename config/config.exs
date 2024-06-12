@@ -7,10 +7,17 @@
 # General application configuration
 import Config
 
+# ---------------------------------------------------------------------------- #
+#                      General application configuration                       #
+# ---------------------------------------------------------------------------- #
+
 config :creative,
   ecto_repos: [Creative.Repo]
 
-# Configures the endpoint
+# ---------------------------------------------------------------------------- #
+#                            Endpoint configuration                            #
+# ---------------------------------------------------------------------------- #
+
 config :creative, CreativeWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [
@@ -20,8 +27,10 @@ config :creative, CreativeWeb.Endpoint,
   pubsub_server: Creative.PubSub,
   live_view: [signing_salt: "Puww+Du/"]
 
-# Configures the mailer
-#
+# ---------------------------------------------------------------------------- #
+#                             Mailer configuration                             #
+# ---------------------------------------------------------------------------- #
+
 # By default it uses the "Local" adapter which stores the emails
 # locally. You can see the emails in your browser, at "/dev/mailbox".
 #
@@ -29,7 +38,11 @@ config :creative, CreativeWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :creative, Creative.Mailer, adapter: Swoosh.Adapters.Local
 
-# Configure esbuild (the version is required)
+# ---------------------------------------------------------------------------- #
+#                            Esbuild configuration                             #
+# ---------------------------------------------------------------------------- #
+
+# (the version is required)
 config :esbuild,
   version: "0.17.11",
   default: [
@@ -39,7 +52,11 @@ config :esbuild,
     env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
   ]
 
-# Configure tailwind (the version is required)
+# ---------------------------------------------------------------------------- #
+#                            Tailwind configuration                            #
+# ---------------------------------------------------------------------------- #
+
+# (the version is required)
 config :tailwind,
   version: "3.2.7",
   default: [
@@ -51,7 +68,10 @@ config :tailwind,
     cd: Path.expand("../assets", __DIR__)
   ]
 
-# Configures Elixir's Logger
+# ---------------------------------------------------------------------------- #
+#                        Elixir's Logger configuration                         #
+# ---------------------------------------------------------------------------- #
+
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
@@ -75,8 +95,16 @@ config :spark, :formatter,
     ]
   ]
 
+# ---------------------------------------------------------------------------- #
+#                          API related configurations                          #
+# ---------------------------------------------------------------------------- #
+
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
+
+# ---------------------------------------------------------------------------- #
+#                      Environment related configurations                      #
+# ---------------------------------------------------------------------------- #
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
