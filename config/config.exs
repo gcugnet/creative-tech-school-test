@@ -80,6 +80,8 @@ config :logger, :console,
 #                         Ash Framework configuration                          #
 # ---------------------------------------------------------------------------- #
 
+config :creative, :ash_domains, [Creative.Contacts]
+
 config :spark, :formatter,
   remove_parens?: true,
   "Ash.Domain": [],
