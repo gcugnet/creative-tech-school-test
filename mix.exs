@@ -33,6 +33,7 @@ defmodule Creative.MixProject do
   defp deps do
     [
       {:ash, "~> 3.0"},
+      {:ash_phoenix, "~> 2.0"},
       {:ash_postgres, "~> 2.0"},
       {:phoenix, "~> 1.7.6"},
       {:phoenix_ecto, "~> 4.4"},
