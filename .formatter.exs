@@ -1,5 +1,5 @@
 [
-  import_deps: [:ash, :ash_postgres, :ecto, :ecto_sql, :phoenix],
+  import_deps: [:ash, :ash_phoenix, :ash_postgres, :ecto, :ecto_sql, :phoenix],
   subdirectories: ["priv/*/migrations"],
   plugins: [Phoenix.LiveView.HTMLFormatter, Spark.Formatter],
   inputs: [
