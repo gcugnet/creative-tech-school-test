@@ -12,16 +12,18 @@ defmodule Creative.Contacts.Contact do
   # This section defines every field of the "contacts" table.
   attributes do
     uuid_primary_key :id
-    attribute :first_name, :ci_string, allow_nil?: false
-    attribute :last_name, :ci_string
-    attribute :birth_date, :date
+    attribute :first_name, :ci_string, allow_nil?: false, public?: true
+    attribute :last_name, :ci_string, public?: true
+    attribute :birth_date, :date, public?: true
 
     attribute :phone, :string do
       constraints match: ~r/^\d+$/
+      public? true
     end
 
     attribute :email, :ci_string do
       constraints match: ~r/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/
+      public? true
     end
 
     create_timestamp :inserted_at, type: :utc_datetime
