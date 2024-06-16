@@ -52,6 +52,7 @@
               nixpkgs-fmt
 
               # Tools.
+              flyctl
               git
             ];
 
