@@ -1,0 +1,1 @@
+alias Creative.Contacts.Contact
