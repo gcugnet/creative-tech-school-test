@@ -10,6 +10,7 @@ config :creative, Creative.Repo,
   password: "postgres",
   hostname: "localhost",
   database: "creative_test#{System.get_env("MIX_TEST_PARTITION")}",
+  port: 5433,
   pool: Ecto.Adapters.SQL.Sandbox,
   pool_size: 10
 

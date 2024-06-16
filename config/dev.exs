@@ -6,6 +6,7 @@ config :creative, Creative.Repo,
   password: "postgres",
   hostname: "localhost",
   database: "creative_dev",
+  port: 5433,
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10

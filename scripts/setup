@@ -2,6 +2,7 @@
 
 echo
 
+# Fetch and build dependencies if not already done
 if [ ! -d "deps" ] || [ ! "$(ls -A deps)" ]; then
     printf "\e[32m=> Fetching dependencies and building the application...\e[0m\n\n"
     echo "+ mix do deps.get, compile --verbose"
@@ -9,6 +10,7 @@ if [ ! -d "deps" ] || [ ! "$(ls -A deps)" ]; then
     echo
 fi
 
+# Initialize the database if PGDATA directory does not exist
 if [ ! -d "$PGDATA" ]; then
     printf "\e[32m=> Initialising the database in $PGDATA...\e[0m\n\n"
     echo "+ initdb --no-locale --encoding=UTF-8"
@@ -16,20 +18,23 @@ if [ ! -d "$PGDATA" ]; then
     echo
 fi
 
+# Start PostgreSQL if not already running
 if [ ! -f "$PGDATA/postmaster.pid" ]; then
     printf "\e[32m=> Starting PostgreSQL...\e[0m\n\n"
-    echo "+ pg_ctl -o \"-k $PGDATA\" -l \"$PGDATA/server.log\" start"
-    pg_ctl -o "-k \"$PGDATA\"" -l "$PGDATA/server.log" start
+    echo "+ pg_ctl -o \"-k $PGDATA -p 5433\" -l \"$PGDATA/server.log\" start"
+    pg_ctl -o "-k \"$PGDATA\" -p 5433" -l "$PGDATA/server.log" start
     echo
 fi
 
+# Check if the 'postgres' user exists
 printf "\e[32m=> Creating the postgres user if necessary...\e[0m\n\n"
-echo "+ createuser --host $PGDATA postgres --createdb --echo"
-createuser --host "$PGDATA" postgres --createdb --echo
+echo "+ createuser --host $PGDATA -p 5433 postgres --createdb --echo"
+createuser --host "$PGDATA" -p 5433 postgres --createdb --echo
 echo
 
 set -e
 
+# Set up the database with Ecto
 printf "\e[32m=> Setting up the database...\e[0m\n\n"
 echo "+ mix ecto.reset"
 mix ecto.reset
