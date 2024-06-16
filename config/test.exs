@@ -17,7 +17,8 @@ config :creative, Creative.Repo,
 # you can enable the server option below.
 config :creative, CreativeWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "Gw+A6XkSeMgwbJ88tROQ/N60Ctzmwkix/UDcNV/JyTQrOG16NHPU7o2uUDyspLDz",
+  secret_key_base:
+    "Gw+A6XkSeMgwbJ88tROQ/N60Ctzmwkix/UDcNV/JyTQrOG16NHPU7o2uUDyspLDz",
   server: false
 
 # In test we don't send emails.

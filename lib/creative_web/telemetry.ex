@@ -58,7 +58,8 @@ defmodule CreativeWeb.Telemetry do
       ),
       summary("creative.repo.query.decode_time",
         unit: {:native, :millisecond},
-        description: "The time spent decoding the data received from the database"
+        description:
+          "The time spent decoding the data received from the database"
       ),
       summary("creative.repo.query.query_time",
         unit: {:native, :millisecond},
